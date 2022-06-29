@@ -1,0 +1,16 @@
+*{
+    margin: 0;
+}
+
+#background{
+    background-color: #FAF1EC;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+}
+
+#logo{
+    height: 7em;
+    width: 7em;
+}
+
