@@ -1,6 +1,10 @@
 *{
     margin: 0;
 }
+.navbar{
+    border:solid 10px red;
+    padding-bottom: -60px;
+}
 
 #background{
     background-color: #FAF1EC;
@@ -9,12 +13,25 @@
     height: 100vh;
 }
 
-#logo{
-    height: 7em;
-    width: 7em;
+#logohaut{
+    position: relative;
+    height: 15em;
+    width: 15em;
+}
+#favori{
+margin-left: 100px; 
 }
 
-.test{
-border: 1px solid red;
+#panier{
+margin-left: -100px;
+}
 
+#login{
+margin-left: -100px;
+}
+
+#logo{
+height: 7em;
+width: 7em;
+margin:0px 510px;
 }
