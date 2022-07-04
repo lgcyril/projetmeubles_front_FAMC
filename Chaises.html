@@ -13,33 +13,34 @@
   <header>
     <!--First Navbar-->
     <nav class="navbar navbar-light bg-light sticky-top">
-      <div class="container-fluid">
+      <div class="container mt-1">
         <!-- <a class="navbar-brand">Navbar</a> -->
         <!--Logo-->
-        <img class="img-fluid" src="images/logo_meuble.png" id="logo">
+        <img class="img-fluid" src="images/Logoheader.png" id="logohaut">
         <!--Logo-->
         <!--Search Form-->
         <form class="d-flex input-group w-auto justify-content-center">
           <input
             type="search"
             class="form-control rounded"
-            placeholder="Search"
+            placeholder="Je cherche un produit..."
             aria-label="Search"
             aria-describedby="search-addon"
           />
-          <span class="input-group-text border-0" id="search-addon">
-            <i class="fas fa-search"></i>
-          </span>
+          <button style="font-size:20px">Search <i class="fa fa-search"></i></button>
         </form>
+
+        
          <!--Search Form-->
          <!--btn je vends-->
          <button type="button" class="btn btn-primary">Je vends ! </button>
          <!--Icon Favori-->
-          <img class="img-fluid" src="images/coeur rouge.png" id="favori">
+   
+          <img class="img-fluid " src="images/coeur-rouge.png" id="favori">
           <!--Icon panier-->
-          <img class="img-fluid" src="images/caddie.png" id="panier">
+          <img class="img-fluid " src="images/caddie.png" id="panier">
           <!--Icon login-->
-          <img class="img-fluid" src="images/login(1).png" id="login">
+          <img class="img-fluid " src="images/login.png" id="login">
       </div>
       <!--Second Navbar-->
       <div class="container-fluid justify-content-center align-items-center" id="secondNavbar">
@@ -98,28 +99,31 @@
       <li><a class="dropdown-item" href="#">Something else here</a></li>
     </ul>
   </div>
-  
     <div class="container">
       <div id="productshome">
-          <div class="row justify-content-center">
+          <div class="row">
+              <div class="col-sm-3"  v-for="photos in photo">
+                  <p class=" mt-4 p-5 bg-light text-dark text-center rounded">{{photos}}</p>
+              </div>
               <div class="col-sm-3"  v-for="noms in nom">
-                  <p class=" mt-4 p-5 bg-light text-dark text-center rounded">Photos</p>
-                  <p class=" bg-light text-dark text-center rounded">Nos produits</p>
-                  <p class=" bg-light text-dark text-center rounded">Prix</p>
+                <p class=" bg-light text-dark text-center rounded">{{noms}}</p>
+              </div>
+              <div class="col-sm-3" v-for="prices in price">
+                  <p class=" bg-light text-dark text-center rounded" >{{prices}}</p>
               </div>
           </div>
       </div>
   </section>
     
-
+<!-- On veut afficher l'API dans id='titre' (html) -->
+<!-- et remplacer Pdt1,4 par id='titre' -->
     <script>
       var app = new Vue({
           el: "#productshome",
           data: {
-              photo:[],
-              //Ajouter le nombre de produits suivant votre database dans tableau ci-dessous.
-              nom: ["Pdt1", "Pdt2", "Pdt3",],
-              prix:[],
+              photo:[`id='photo'`, "Photo2", "Photo3", "Photo4"],
+              nom: [`id='titre'`, "Pdt2", "Pdt3", "Pdt4"],
+              price:[`id='prix'`,"Prix2","Prix3","Prix4"],
           }
       })
   </script>
@@ -130,17 +134,11 @@
 <div class="container">
         <div class="row justify-content-center">
           <div class="col-sm" > <!--reponsive-->
-      <img class="img-fluid" src="images/logo_meuble.png" id="logo"> 
+      <img class="img-fluid" src="images/logo.png" id="logo"> 
+      <img class="img-fluid" src="images/resosoc.png" id="reseaux">
          </div>
         </div>
    </div>
-   <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-sm" >
-                  <img class="img-fluid" src="images/reseaux sociaux.png" id="reseaux">
-            </div>
-          </div>
-        </div>
         <div class="container">
           <div class="row justify-content-center">
               <div class="col-3"> A propos</div> 
