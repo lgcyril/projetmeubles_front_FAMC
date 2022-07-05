@@ -118,6 +118,7 @@
                   <p class=" mt-4 p-5 bg-light text-dark text-center rounded">{{photos}}</p>
               </div>
               <div class="col-sm-3"  v-for="noms in nom">
+                <div id="test"> </div>
                 <p class=" bg-light text-dark text-center rounded">{{noms}}</p>
               </div>
               <div class="col-sm-3" v-for="prices in price">
@@ -130,11 +131,13 @@
 <!-- On veut afficher l'API dans id='titre' (html) -->
 <!-- et remplacer Pdt1,4 par id='titre' -->
     <script>
+       console.log("name HOME : " + nameProduct)
+      
       var app = new Vue({
           el: "#productshome",
           data: {
-              photo:[`id='photo'`, "Photo2", "Photo3", "Photo4"],
-              nom: [`id='titre'`, "Pdt2", "Pdt3", "Pdt4"],
+              photo:[`id='photo'`, "Photo2", "Photo3", "Photo4"],  // Vue Router à creuser
+              nom: [`<div id="test"> </div>`, "Pdt2", "Pdt3", "Pdt4"],
               price:[`id='prix'`,"Prix2","Prix3","Prix4"],
           }
       })

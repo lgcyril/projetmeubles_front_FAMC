@@ -1,4 +1,6 @@
-// Création fonction bdAdultes
+let nameProduct="";
+
+// Création fonction getAPI
 async function getAPI() {
     var myHeaders = new Headers();
     var myInit = {
@@ -10,17 +12,18 @@ async function getAPI() {
     try {
         let response = await fetch('http://localhost:4000/items')
         let result = await response.json()
-        let rang, name, auteur;
+        
         // AFFICHE LE TABLEAU
-        // for (let i = 0; i < 3; i++) {
+         //for (let i = 0; i < 3; i++) {
             //console.log(result.records[i].fields.rang + ". " + result.records[i].fields.titre + " de " + result.records[i].fields.auteur)
             // rang += `<td>` + result.records[i].fields.rang + `<br>` + `</td>`
-            //name = result.item.name;
-            console.log("Dans API : " + result) 
+            nameProduct = result[0].name;
+            console.log(result) 
+            console.log("name : " + nameProduct)
             // auteur += `<td>` + result.records[i].fields.auteur + `<br>` + `</td>`
         // }  // fin for
         // document.getElementById("rang").innerHTML = rang
-       // document.getElementById("titre").innerHTML = name
+       document.getElementById("test").innerHTML = nameProduct
         // document.getElementById("auteur").innerHTML = auteur
     }  // fin try
     catch (error) {
@@ -28,4 +31,23 @@ async function getAPI() {
     }
 }
 
-getAPI();
+ getAPI();
+
+
+// DEUXIEME VERSION PLUS SIMPLE
+function getAPI2() {
+    console.log("fetching") 
+    fetch("http://localhost:4000/items")
+      .then(res => res.json())
+      .then(
+        (res) => {
+          console.log(res)
+          this.setState({
+              isLoaded : true,
+              items : res
+            })
+          console.log("fetched")
+        })
+}
+
+// getAPI2()
