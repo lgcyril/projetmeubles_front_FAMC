@@ -31,7 +31,7 @@ async function getAPI() {
     }
 }
 
- getAPI();
+ //getAPI();
 
 
 // DEUXIEME VERSION PLUS SIMPLE
@@ -48,6 +48,14 @@ function getAPI2() {
             })
           console.log("fetched")
         })
+  return res      
+}
+
+async function get4LastFurniture() {
+  const pl = await fetch("http://localhost:4000/items")
+  const data = await pl.json()
+  const res = await data.slice(0,4)
+  return res
 }
 
 // getAPI2()
