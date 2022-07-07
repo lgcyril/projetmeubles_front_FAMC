@@ -131,10 +131,12 @@
 <!-- On veut afficher l'API dans id='titre' (html) -->
 <!-- et remplacer Pdt1,4 par id='titre' -->
     <script>
+      let data
+      get4LastFurniture().then(a => data=a)
        const vm = Vue.createApp({
         data(){
           return{
-
+            objects: data
           }
         }
        })
@@ -142,11 +144,13 @@
           props: ['name', 'img_url', 'description', 'id'],
           template: `
           <div class="card col-sm-3">
-            <img src={{ img_url }} class="card-img-top"
+            <img src={{ img_url }} class="card-img-top">
               <div class="card-body">
                 <h5 class="card-title"> {{ name }} </h5>
                 <p class="card-text"> {{ description }} </p>
                 <a href="#" class="btn"> Découvrir </a>
+              </div>
+          </div>
           `
        })
     </script>
