@@ -169,7 +169,20 @@
       for (let i = 0; i < data.length; i++) {
         images[i].src = data[i].img_url
       }
+
+      let title = document.getElementsByClassName("card-title");
+      for (let i = 0; i < data.length; i++) {
+        title[i].innerText = data[i].name
+      }
+
+      let text = document.getElementsByClassName("card-text");
+      for (let i = 0; i < data.length; i++) {
+        text[i].innerText = data[i].description
+      }
+
     })
+    
+    
 
   </script>
 
