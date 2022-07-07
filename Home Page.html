@@ -113,18 +113,7 @@
     </div>
     <div class="container">
       <div id="productshome">
-          <div class="row">
-              <div class="col-sm-3"  v-for="photos in photo">
-                  <p class=" mt-4 p-5 bg-light text-dark text-center rounded">{{photos}}</p>
-              </div>
-              <div class="col-sm-3"  v-for="noms in nom">
-                <div id="test"> </div>
-                <p class=" bg-light text-dark text-center rounded">{{noms}}</p>
-              </div>
-              <div class="col-sm-3" v-for="prices in price">
-                  <p class=" bg-light text-dark text-center rounded" >{{prices}}</p>
-              </div>
-          </div>
+          <product-card v-for="object in objects"></product-card>
       </div>
   </section>
     
