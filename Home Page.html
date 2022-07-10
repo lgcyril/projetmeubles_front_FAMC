@@ -112,7 +112,6 @@
       <div class="row" id="cards-container">
         <p class="text-center display-6">Notre Sélection du Moment</p>
         <product-card v-for="object in objects" v-bind:obj="object" />
-        <!-- <product-card v-bind:obj="test" /> -->
       </div>
     </div>
 
@@ -121,37 +120,7 @@
   <!-- On veut afficher l'API dans id='titre' (html) -->
   <!-- et remplacer Pdt1,4 par id='titre' -->
   <script>
-    const vm = Vue.createApp({
-      data() {
-        return {
-          objects: []
-        }
-      },
-      mounted() {
-        get4LastFurniture().then((payload) => {
-          this.objects = payload;
-          this.test = payload[1];
-          console.log("Line below is objects");
-          console.log(this.objects);
-        })
-          .catch(err => console.log(err + "when mounted()"))
-      }
-    })
-
-    vm.component('product-card', {
-      props: ['obj'],
-      template: `
-        <div class="card col-sm-3">
-          <img v-bind:src="obj.img_url" class="card-img-top">
-            <div class="card-body">
-              <h5 class="card-title"> {{ this.obj.name }} </h5>
-              <p class="card-text"> {{ this.obj.description }} </p>
-              <a href="#" class="btn"> Découvrir </a>
-            </div>
-        </div>
-        `
-    })
-
+    const vm = productCardCreator(get4LastFurniture())
     vm.mount("#cards-container")
   </script>
 
