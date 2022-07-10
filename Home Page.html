@@ -124,15 +124,6 @@
     const vm = Vue.createApp({
       data() {
         return {
-          test: {
-            "id": 3,
-            "name": "Chaises rouges",
-            "description": "Un ensemble de chaises rouges qui nont rien de particulier",
-            "price": 50,
-            "created": "2022-06-29T13:49:51.000Z",
-            "img_url": "https://res.cloudinary.com/dpngcje4c/image/upload/v1657189252/rochebobois_cea0po.jpg\n",
-            "category": "chaises"
-          },
           objects: []
         }
       },
@@ -159,12 +150,6 @@
             </div>
         </div>
         `
-      // template: `
-      //           <p> {{ this.obj.name}} </p>
-      //           <p> {{ this.obj.img_url }}</p>
-      //           <p> {{ this.obj.description }}</p>
-      //           `
-
     })
 
     vm.mount("#cards-container")
