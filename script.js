@@ -60,20 +60,20 @@ const displayerTemplate = `
 function productCardCreator(promise) {
   const vm = Vue.createApp({
     data() {
-      return {
-        objects: []
+      return { //contient toutes les données nécessaires à l'affichage de l'objet => vide au début, le remplissage se fait avec un appel API (promise) au moment du montage
+        objects: [] 
       }
     },
-    mounted() {      
+    mounted() { //événement de déclenchement (comme click). Ici c'est lui qui déclenche la résolution de la promesse liée à l'appel API    
       promise.then((payload) => {
-        this.objects = payload;
+        this.objects = payload; //peuplement de data.objects avec le résultat de la promesse
       })
         .catch(err => console.log(err + "when mounted()"))
     }
   })
-  vm.component('product-card', {
-    props: ['obj'],
-    template: displayerTemplate
+  vm.component('product-card', { //la partie front de l'objet => permet de créer une balise <product-card> dans le HTML
+    props: ['obj'], //le(s) paramètre(s) qui définissent le composant front. Ici obj est un objet qui contient toutes les infos nécessaires à l'affichage
+    template: displayerTemplate //défini au dessus : le code jsx qui définit l'apparence du module
   })
 
   return vm
