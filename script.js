@@ -50,7 +50,9 @@ const displayerTemplate = `
         <h3 class="card-title"> {{ this.obj.name }} </h3>
         <p class="card-text"> {{ this.obj.description }} </p>
         <h5 class="card-price"> {{ this.obj.price }}€ </h5>
-        <a href="#" class="btn btn-outline-secondary btn-discover"> Découvrir </a>
+        <div class="discover-btn-container">
+          <a href="#" class="btn btn-outline-secondary btn-discover"> Découvrir </a>
+        </div>
       </div>
   </div>
 `

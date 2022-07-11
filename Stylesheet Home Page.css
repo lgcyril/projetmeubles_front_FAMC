@@ -62,8 +62,22 @@
     object-fit: contain;
 }
 
-.btn-discover{
-    margin: 1rem auto 1rem auto;
+.card-title{
+    margin: 6% 0;
+    height: 4rem;
+    overflow: hidden;
+
+}
+
+.card-text{
+    height: 3rem;
+    overflow: hidden;
+}
+
+.discover-btn-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #acheter{
