@@ -47,8 +47,9 @@ const displayerTemplate = `
   <div class="card col-sm-3">
     <img v-bind:src="obj.img_url" class="card-img-top">
       <div class="card-body">
-        <h5 class="card-title"> {{ this.obj.name }} </h5>
+        <h3 class="card-title"> {{ this.obj.name }} </h3>
         <p class="card-text"> {{ this.obj.description }} </p>
+        <h5 class="card-price"> {{ this.obj.price }}€ </h5>
         <a href="#" class="btn"> Découvrir </a>
       </div>
   </div>
