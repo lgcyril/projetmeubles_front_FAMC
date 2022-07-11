@@ -29,7 +29,7 @@ function getAPI2() {
 }
 
 async function get4LastFurniture() {
-  const data = await getAPI("http://localhost:4000/get-allItems")
+  const data = await getAPI("http://localhost:4000/last4items")
   const res = await data.slice(0,4)
   return res
 }
@@ -50,7 +50,7 @@ const displayerTemplate = `
         <h3 class="card-title"> {{ this.obj.name }} </h3>
         <p class="card-text"> {{ this.obj.description }} </p>
         <h5 class="card-price"> {{ this.obj.price }}€ </h5>
-        <a href="#" class="btn"> Découvrir </a>
+        <a href="#" class="btn btn-outline-secondary btn-discover"> Découvrir </a>
       </div>
   </div>
 `

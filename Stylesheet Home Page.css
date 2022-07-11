@@ -57,6 +57,15 @@
 
 }
 
+.card-img-top{
+    height: 30%;
+    object-fit: contain;
+}
+
+.btn-discover{
+    margin: 1rem auto 1rem auto;
+}
+
 #acheter{
     margin-left: 57%;
 
