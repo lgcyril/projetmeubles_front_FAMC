@@ -108,83 +108,22 @@
       </div>
     </div>
     <div class="container pt-4">
-      <div class="row">
+      <div class="row" id="cards-container">
         <p class="text-center display-6">Notre Sélection du Moment</p>
-
-        <div class="card col-sm-3">
-          <img src="https://www.femmesmagazine.lu/wp-content/uploads/2021/09/20210915-160545-cnpopswde-1024x682.jpg"
-            class="card-img-top">
-          <div class="card-body">
-            <h5 class="card-title"> Alice's Home </h5>
-            <p class="card-text"> This is my dream apartment </p>
-            <a href="#" class="btn"> Discover </a>
-          </div>
-        </div>
-
-        <div class="card col-sm-3">
-          <img src="https://www.femmesmagazine.lu/wp-content/uploads/2021/09/20210915-160545-cnpopswde-1024x682.jpg"
-            class="card-img-top">
-          <div class="card-body">
-            <h5 class="card-title"> Alice's Home </h5>
-            <p class="card-text"> This is my dream apartment </p>
-            <a href="#" class="btn"> Discover </a>
-          </div>
-        </div>
-
-
-        <div class="card col-sm-3">
-          <img src="https://www.femmesmagazine.lu/wp-content/uploads/2021/09/20210915-160545-cnpopswde-1024x682.jpg"
-            class="card-img-top">
-          <div class="card-body">
-            <h5 class="card-title"> Alice's Home </h5>
-            <p class="card-text"> This is my dream apartment </p>
-            <a href="#" class="btn"> Discover </a>
-          </div>
-        </div>
-
-        <div class="card col-sm-3">
-          <img src="https://www.femmesmagazine.lu/wp-content/uploads/2021/09/20210915-160545-cnpopswde-1024x682.jpg"
-            class="card-img-top">
-          <div class="card-body">
-            <h5 class="card-title"> Alice's Home </h5>
-            <p class="card-text"> This is my dream apartment </p>
-            <a href="#" class="btn"> Discover </a>
-          </div>
-        </div>
-
+        <product-card v-for="object in objects" v-bind:obj="object" />
       </div>
     </div>
-    <div class="container">
 
-    </div>
   </section>
 
   <!-- On veut afficher l'API dans id='titre' (html) -->
   <!-- et remplacer Pdt1,4 par id='titre' -->
   <script>
-    let data
-    get4LastFurniture().then(data => {
-
-      let images = document.getElementsByClassName("card-img-top");
-      for (let i = 0; i < data.length; i++) {
-        images[i].src = data[i].img_url
-      }
-
-      let title = document.getElementsByClassName("card-title");
-      for (let i = 0; i < data.length; i++) {
-        title[i].innerText = data[i].name
-      }
-
-      let text = document.getElementsByClassName("card-text");
-      for (let i = 0; i < data.length; i++) {
-        text[i].innerText = data[i].description
-      }
-
-    })
-    
-    
-
+    const vm = productCardCreator(get4LastFurniture())
+    vm.mount("#cards-container")
   </script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 
   <footer>
     <section>

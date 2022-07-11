@@ -1,37 +1,14 @@
-let nameProduct="";
-
-// Création fonction getAPI
-async function getAPI() {
-    var myHeaders = new Headers();
-    var myInit = {
-        method: 'GET',
-        headers: myHeaders,
-        // mode: 'cors',
-        // cache: 'default'
-    };
+// I. API and database functions
+async function getAPI(endpoint) {
     try {
-        let response = await fetch('http://localhost:4000/items')
+        let response = await fetch(endpoint)
         let result = await response.json()
-        
-        // AFFICHE LE TABLEAU
-         //for (let i = 0; i < 3; i++) {
-            //console.log(result.records[i].fields.rang + ". " + result.records[i].fields.titre + " de " + result.records[i].fields.auteur)
-            // rang += `<td>` + result.records[i].fields.rang + `<br>` + `</td>`
-            nameProduct = result[0].name;
-            console.log(result) 
-            console.log("name : " + nameProduct)
-            // auteur += `<td>` + result.records[i].fields.auteur + `<br>` + `</td>`
-        // }  // fin for
-        // document.getElementById("rang").innerHTML = rang
-       document.getElementById("test").innerHTML = nameProduct
-        // document.getElementById("auteur").innerHTML = auteur
-    }  // fin try
+        return result
+    } 
     catch (error) {
         console.log(error);
     }
 }
-
- //getAPI();
 
 
 // DEUXIEME VERSION PLUS SIMPLE
@@ -52,10 +29,51 @@ function getAPI2() {
 }
 
 async function get4LastFurniture() {
-  const pl = await fetch("http://localhost:4000/items")
-  const data = await pl.json()
+  const data = await getAPI("http://localhost:4000/get-allItems")
   const res = await data.slice(0,4)
   return res
 }
 
-// getAPI2()
+async function getCategoryFurniture(category) {
+  const url = "http://localhost:4000/get-items-byCategory/"+category
+  const data = await getAPI(url)
+  return data
+}
+
+//II. Vue objects management
+
+//Template of Vue displayers
+const displayerTemplate = `
+  <div class="card col-sm-3">
+    <img v-bind:src="obj.img_url" class="card-img-top">
+      <div class="card-body">
+        <h5 class="card-title"> {{ this.obj.name }} </h5>
+        <p class="card-text"> {{ this.obj.description }} </p>
+        <a href="#" class="btn"> Découvrir </a>
+      </div>
+  </div>
+`
+//Creator allows to create a displayer in a single function call. 
+//Requires a promise to feed its data
+//Still requires mounting + creation of <product-card> html + import of vue script in all html pages
+function productCardCreator(promise) {
+  const vm = Vue.createApp({
+    data() {
+      return {
+        objects: []
+      }
+    },
+    mounted() {      
+      promise.then((payload) => {
+        this.objects = payload;
+      })
+        .catch(err => console.log(err + "when mounted()"))
+    }
+  })
+  vm.component('product-card', {
+    props: ['obj'],
+    template: displayerTemplate
+  })
+
+  return vm
+}
