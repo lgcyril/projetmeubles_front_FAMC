@@ -10,8 +10,7 @@
     rel="stylesheet">
   <link rel="stylesheet" href="styles/Stylesheet Home Page.css">
   <script src="https://unpkg.com/vue@3"></script>
-  <script src="script.js"></script>
-  <title>Home Page</title>
+  <title>Login</title>
 </head>
 
 <body>
@@ -33,14 +32,14 @@
 
         <!--Search Form-->
         <!--btn je vends-->
-         <a href="Login.html"><button type="button" class="btn btn-primary" >Je vends !  </button></a>
+        <a href="Ajout.html"><button type="button" class="btn btn-primary" >Je vends !  </button></a>
         <!--Icon Favori-->
 
         <img class="img-fluid " src="images/coeur-rouge.png" id="favori">
         <!--Icon panier-->
         <img class="img-fluid " src="images/caddie.png" id="panier">
         <!--Icon login-->
-        <img class="img-fluid " src="images/login.png" id="login"  href="Login.html">
+        <img class="img-fluid " src="images/login.png" id="login">
       </div>
       <!--Second Navbar-->
       <div class="container-fluid justify-content-center align-items-center" id="secondNavbar">
@@ -82,49 +81,33 @@
     </div>
   </header>
   <section>
-    <div class="container mt-5">
-      <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="images/Relookez.png" class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img src="images/Relookez1.png" class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img src="images/Relookez2.png" class="d-block w-100" alt="...">
-          </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
-          data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
-          data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
-    </div>
+
     <div class="container pt-4">
-      <div class="row" id="cards-container">
-        <p class="text-center display-6">Notre Sélection du Moment</p>
-        <product-card v-for="object in objects" v-bind:obj="object" />
+      <div class="row">
+        <p class="text-center display-6">Login</p>
+        <!-- Une fois logué il appelle la page /user de index.js -->
+    <form action="/user" method="post">
+      <div class="input-field col-sm-6 mb-3">
+        <input type="text" name="username" id="username" placeholder="Enter Username">
+      </div>
+      <div class="input-field col-sm-6 mb-3">
+        <input type="password" name="password" id="password" placeholder="Enter Password">
+      </div>
+      <input type="submit" value="LogIn">
+    
+    </form>
       </div>
     </div>
+
+
+    
 
   </section>
 
-  <!-- On veut afficher l'API dans id='titre' (html) -->
-  <!-- et remplacer Pdt1,4 par id='titre' -->
-  <script>
-    const vm = productCardCreator(get4LastFurniture())
-    vm.mount("#cards-container")
-  </script>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-
+ 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+    crossorigin="anonymous"></script>
   <footer>
     <section>
 

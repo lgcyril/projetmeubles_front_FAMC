@@ -93,3 +93,30 @@
 #pouce{
     width: 45%;
 }
+
+
+/*$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ 
+//$          LOGIN            $
+//$$$$$$$$$$$$$$$$$$$$$$$$$$$*/
+
+.input-field {
+    margin-top: 2rem;
+    margin-left: 43%;
+}
+
+.input-field input {
+    padding: 0.8rem;
+}
+
+form .input-field:first-child {
+    margin-bottom: 1.5rem;
+}
+
+form input[type="submit"] {
+    background: linear-gradient(to left, #4776E6, #8e54e9);
+    color: white;
+    border-radius: 4px;
+    margin-top: 1rem;
+    padding: 0.4rem;
+    margin-left: 48%;
+}
