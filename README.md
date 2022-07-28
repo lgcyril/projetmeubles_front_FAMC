@@ -1,4 +1,4 @@
-# FRONT E-commerce site for selling antique furniture : Fifth group project at <a href="https://adatechschool.fr/" target="_blank">Ada Tech School!</a> In eight days only with three developers.
+# FRONT e-commerce site for selling antique furniture : Fifth group project at <a href="https://adatechschool.fr/" target="_blank">Ada Tech School!</a> In eight days only with three developers.
 **Dream Team :** Amanda, Cyril, Emma, Fanny, Jacqueline, Marine C., Marine L., Quentin, Sabrina<br>
 
 **The idea :** In eight days, our team has co-developed an E-commerce site for selling antique furniture in Vue.JS, Bootstrap Node.JS with API call to DB in MySQL.<br>
